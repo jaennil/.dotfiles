@@ -37,9 +37,14 @@ exec --no-startup-id nm-applet
 # start application on startup
 exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal'
 exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/telegram-desktop; exec /usr/bin/firefox'
 
 # wallpaper
 exec feh --bg-scale /home/johnil/Downloads/blackartsviper.jpeg
+
+# russian keyboard layout
+exec setxkbmap -layout us,ru
+exec setxkbmap -option 'grp:ctrl_alt_toggle'
 
 # GET DEM BORDERS OUT OF HEREc:w
 #
