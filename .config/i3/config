@@ -38,6 +38,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal'
 exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
 
+# wallpaper
+exec feh --bg-scale /home/johnil/Downloads/blackartsviper.jpeg
+
 # GET DEM BORDERS OUT OF HEREc:w
 #
 # Thanks Childz
