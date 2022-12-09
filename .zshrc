@@ -121,4 +121,5 @@ eval $(thefuck --alias)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # add intellij idea to path
-export PATH="/home/johnil/Downloads/ideaIU-2022.3/idea-IU-223.7571.182/bin/:$PATH"
+export PATH="/home/johnil/bin/ideaIU-2022.3/idea-IU-223.7571.182/bin/:$PATH"
+fpath+=${ZDOTDIR:-~}/.zsh_functions
