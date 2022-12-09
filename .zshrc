@@ -114,6 +114,8 @@ source $ZSH/oh-my-zsh.sh
 # by default sudo apt get install bat installs it as 'batcat'
 alias bat="batcat"
 
+alias fd="fdfind"
+
 eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
