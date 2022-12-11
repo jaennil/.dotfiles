@@ -34,18 +34,16 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+exec --no-startup-id picom -f &
+
 # start application on startup
-exec --no-startup-id i3-msg 'workspace 1; exec alacritty'
-exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
-exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/telegram-desktop'
+# exec --no-startup-id i3-msg 'workspace 1; exec /usr/local/bin/alacritty'
+# exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
+# exec --no-startup-id i3-msg 'workspace 3; exec /snap/bin/telegram-desktop'
 
 
 # wallpaper
 exec feh --bg-scale /home/johnil/Downloads/blackartsviper.jpeg
-
-# russian keyboard layout
-exec setxkbmap -layout us,ru
-exec setxkbmap -option 'grp:ctrl_alt_toggle'
 
 # GET DEM BORDERS OUT OF HEREc:w
 #
@@ -56,6 +54,10 @@ for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4
 
 # touch pad tap-to-click
 exec xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Tapping Enabled" 1
+
+# russian keyboard layout
+exec --no-startup-id setxkbmap -layout us,ru
+exec --no-startup-id setxkbmap -option 'grp:ctrl_alt_toggle'
 
 bindsym $mod+F1 exec pactl set-sink-mute @DEFAULT_SINK@ toggle # Mute
 bindsym $mod+F2 exec pactl set-sink-volume @DEFAULT_SINK@ -5%  # Up
