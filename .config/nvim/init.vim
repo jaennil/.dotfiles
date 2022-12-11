@@ -1,1 +1,0 @@
-/home/johnil/.config/nvim/init.vim
