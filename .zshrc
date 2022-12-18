@@ -111,6 +111,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias n="nvim"
+
+alias nh="nvim ."
+
 # by default sudo apt get install bat installs it as 'batcat'
 alias bat="batcat"
 
