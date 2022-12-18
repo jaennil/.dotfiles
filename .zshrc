@@ -113,7 +113,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias n="nvim"
 
-alias nh="nvim ."
+alias n.="nvim ."
 
 # by default sudo apt get install bat installs it as 'batcat'
 alias bat="batcat"
