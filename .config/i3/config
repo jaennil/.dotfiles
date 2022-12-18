@@ -37,6 +37,9 @@ exec --no-startup-id nm-applet
 # terminal opacity
 exec --no-startup-id picom &
 
+# screenshot
+bindsym Print exec --no-startup-id flameshot gui
+
 # start application on startup
 # exec --no-startup-id i3-msg 'workspace 1; exec /usr/local/bin/alacritty'
 # exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
