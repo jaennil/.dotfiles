@@ -35,7 +35,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # terminal opacity
-# exec --no-startup-id picom -f &
+exec --no-startup-id picom &
 
 # start application on startup
 # exec --no-startup-id i3-msg 'workspace 1; exec /usr/local/bin/alacritty'
