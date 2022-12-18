@@ -62,8 +62,10 @@ exec xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Tapping Enabled"
 # russian keyboard layout
 exec --no-startup-id setxkbmap -layout us,ru -option grp:ctrl_alt_toggle
 
-bindsym $mod+F2 exec pactl set-sink-volume @DEFAULT_SINK@ -5%  # Up
-bindsym $mod+F3 exec pactl set-sink-volume @DEFAULT_SINK@ +5%  # Down
+# audio binds
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
