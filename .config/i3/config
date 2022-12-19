@@ -59,8 +59,11 @@ for_window [class="^.*"] border pixel 2
                           # class                 border  backgr. text    indicator child_border
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
-# touch pad tap-to-click
-exec xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Tapping Enabled" 1
+# touch pad
+# tap-to-click
+exec --no-startup-id xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Tapping Enabled" 1
+# natural scrolling
+exec --no-startup-id xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # russian keyboard layout
 exec --no-startup-id setxkbmap -layout us,ru -option grp:ctrl_alt_toggle
