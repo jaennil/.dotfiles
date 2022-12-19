@@ -64,6 +64,8 @@ for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4
 exec --no-startup-id xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Tapping Enabled" 1
 # natural scrolling
 exec --no-startup-id xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Natural Scrolling Enabled" 1
+# slow scrolling
+exec --no-startup-id xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Scrolling Pixel Distance" 50
 
 # russian keyboard layout
 exec --no-startup-id setxkbmap -layout us,ru -option grp:ctrl_alt_toggle
