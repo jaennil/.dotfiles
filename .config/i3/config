@@ -37,6 +37,9 @@ exec --no-startup-id nm-applet
 # terminal opacity
 exec --no-startup-id picom &
 
+# top status bar
+exec --no-startup-id polybar example &
+
 # screenshot
 bindsym Print exec --no-startup-id flameshot gui
 
