@@ -48,6 +48,8 @@ bindsym Print exec --no-startup-id flameshot gui
 # exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
 # exec --no-startup-id i3-msg 'workspace 3; exec /snap/bin/telegram-desktop'
 
+# slow scrolling
+exec --no-startup-id xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Scrolling Pixel Distance" 50
 
 # wallpaper
 exec --no-startup-id feh --bg-scale /home/johnil/Downloads/blackartsviper.jpeg
