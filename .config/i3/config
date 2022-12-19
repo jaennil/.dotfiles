@@ -62,6 +62,10 @@ exec xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Tapping Enabled"
 # russian keyboard layout
 exec --no-startup-id setxkbmap -layout us,ru -option grp:ctrl_alt_toggle
 
+gaps inner 10
+gaps outer 10
+smart_gaps on
+
 # audio binds
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
