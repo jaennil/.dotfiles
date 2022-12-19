@@ -50,7 +50,7 @@ bindsym Print exec --no-startup-id flameshot gui
 
 
 # wallpaper
-exec feh --bg-scale /home/johnil/Downloads/blackartsviper.jpeg
+exec --no-startup-id feh --bg-scale /home/johnil/Downloads/blackartsviper.jpeg
 
 # GET DEM BORDERS OUT OF HEREc:w
 #
