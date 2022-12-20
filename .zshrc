@@ -118,6 +118,8 @@ alias n.="nvim ."
 # by default sudo apt get install bat installs it as 'batcat'
 alias bat="batcat"
 
+alias ls="/opt/coreutils/bin/ls"
+
 alias fd="fdfind"
 
 eval $(thefuck --alias)
