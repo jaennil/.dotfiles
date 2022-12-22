@@ -1,0 +1,74 @@
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1916,
+       "width": 3197,
+       "x": 2,
+       "y": 43
+    },
+    "marks": [],
+    "name": "Friends - Discord",
+    "percent": 0.333333333333333,
+    "swallows": [
+       {
+       "class": "^discord$",
+       "instance": "^discord$",
+       "machine": "^johnil\\-pc$",
+       "title": "^Friends\\ \\-\\ Discord$",
+       "window_role": "^browser\\-window$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1916,
+       "width": 3196,
+       "x": 17,
+       "y": 58
+    },
+    "marks": [],
+    "name": "Messenger - Brave",
+    "percent": 0.333333333333333,
+    "swallows": [
+       {
+       "class": "^Brave\\-browser\\-nightly$",
+       "instance": "^brave\\-browser\\-nightly$",
+       "machine": "^johnil\\-pc$",
+       "title": "^Messenger\\ \\-\\ Brave$",
+       "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1855,
+       "width": 1047,
+       "x": 1076,
+       "y": 74
+    },
+    "marks": [],
+    "name": "^Telegram\\ \\(\\d+\\)$",
+    "percent": 0.333333333333333,
+    "swallows": [
+       {
+       "class": "^TelegramDesktop$",
+       "instance": "^telegram\\-desktop$",
+       "machine": "^johnil\\-pc$",
+       "title": "Telegram\\ \\(\\d+\\)"
+       }
+    ],
+    "type": "con"
+}
+

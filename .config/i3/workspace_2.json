@@ -1,0 +1,25 @@
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1916,
+       "width": 3197,
+       "x": 2,
+       "y": 43
+    },
+    "marks": [],
+    "name": "Brave",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^Brave\\-browser\\-nightly$",
+       "instance": "^brave\\-browser\\-nightly$",
+       "machine": "^johnil\\-pc$",
+       "title": "^(?!.*Messenger\\ -\\ Brave).*$",
+       "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}
+
