@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="nvim"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -71,8 +72,8 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    autoupdate
 	git
-	zsh-autosuggestions
 	sudo
 	web-search
 	copyfile
@@ -81,7 +82,12 @@ plugins=(
 	history
 	copypath
 	zsh-syntax-highlighting
+    zsh-vi-mode
+	zsh-autosuggestions
 	)
+
+# plugins configuration
+# zsh-vim mode
 
 source $ZSH/oh-my-zsh.sh
 

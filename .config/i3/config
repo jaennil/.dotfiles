@@ -43,13 +43,8 @@ exec --no-startup-id picom &
 # top status bar
 exec --no-startup-id polybar example &
 
-# screenshot
-bindsym Print exec --no-startup-id flameshot gui
-
 # start application on startup
-# exec --no-startup-id i3-msg 'workspace 1; exec /usr/local/bin/alacritty'
-# exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
-# exec --no-startup-id i3-msg 'workspace 3; exec /snap/bin/telegram-desktop'
+# exec --no-startup-id bash ~/load_layouts
 
 # slow scrolling
 exec --no-startup-id xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Scrolling Pixel Distance" 50
@@ -83,6 +78,16 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+
+
+# browser bind
+bindsym $mod+b exec brave-browser
+
+# neovim bind
+bindsym $mod+n exec alacritty -e nvim
+
+# screenshot
+bindsym Print exec --no-startup-id flameshot gui
 
 # kill focused window
 bindsym $mod+Shift+q kill
