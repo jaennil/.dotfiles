@@ -50,7 +50,7 @@ exec --no-startup-id polybar example &
 exec --no-startup-id xinput set-prop "MSFT0001:01 27C6:01E0 Touchpad" "libinput Scrolling Pixel Distance" 50
 
 # wallpaper
-exec --no-startup-id feh --bg-scale /home/johnil/Downloads/blackartsviper.jpeg
+exec --no-startup-id feh --bg-scale /home/johnil/Pictures/4k-minimalist-new-york-city-v2z2oqjbr6ie9izo.jpg
 
 # GET DEM BORDERS OUT OF HEREc:w
 #
@@ -94,7 +94,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show drun -show drun
+bindsym $mod+d exec --no-startup-id rofi -show drun
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -203,9 +203,3 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
