@@ -55,6 +55,9 @@ exec --no-startup-id xmodmap ~/.config/rpdvorak
 # wallpaper
 exec --no-startup-id feh --bg-scale /home/johnil/Pictures/4k-minimalist-new-york-city-v2z2oqjbr6ie9izo.jpg
 
+# faster key repeat
+exec --no-startup-id xset r rate 400
+
 # GET DEM BORDERS OUT OF HEREc:w
 #
 # Thanks Childz
