@@ -82,7 +82,7 @@ plugins=(
 	history
 	copypath
 	zsh-syntax-highlighting
-    zsh-vi-mode
+    # zsh-vi-mode
 	zsh-autosuggestions
 	)
 
@@ -135,3 +135,4 @@ eval $(thefuck --alias)
 # add intellij idea to path
 export PATH="/home/johnil/bin/ideaIU-2022.3/idea-IU-223.7571.182/bin/:$PATH"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
