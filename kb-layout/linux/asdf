@@ -1,2 +1,2 @@
 #!/bin/bash
-xmodmap ~/.config/rpdvorak
+xmodmap ~/.dotfiles/kb-layout/linux/xmodmap
