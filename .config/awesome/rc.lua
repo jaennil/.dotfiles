@@ -211,10 +211,11 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
+            require("battery-widget") {ac_prefix = ""},
+            mykeyboardlayout,
             mytextclock,
-            s.mylayoutbox,
+            -- s.mylayoutbox,
         },
     }
 end)
@@ -569,8 +570,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autorun programs
 autorun = true
-autorunApps =
-{
+autorunApps = {
     terminal,
 }
 if autorun then
@@ -581,11 +581,10 @@ end
 
 -- Autorun commands
 autorun_commands = true
-autorunCommands =
-{
+autorunCommands = {
     -- smooth scrolling
     "xinput --set-prop \"MSFT0001:01 27C6:01E0 Touchpad\" \"libinput Scrolling Pixel Distance\" 50",
-    -- better programmer dvorak layout
+    -- better programmer dvorak keyboard layout
     "xmodmap /home/djohnil/.dotfiles/kb-layout/linux/xmodmap"
 }
 if autorun_commands then
