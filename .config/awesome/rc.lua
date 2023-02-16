@@ -213,7 +213,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            require("battery-widget") {ac_prefix = ""},
+            require("battery-widget") {ac_prefix = "", font = "Nerd Fonts Sf Mono 8" },
             -- require("volume-widget"),
             require("volume-widget"),
             mykeyboardlayout,
