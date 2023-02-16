@@ -110,6 +110,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -213,6 +214,8 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             require("battery-widget") {ac_prefix = ""},
+            -- require("volume-widget"),
+            require("volume-widget"),
             mykeyboardlayout,
             mytextclock,
             -- s.mylayoutbox,
@@ -569,7 +572,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autorun programs
-autorun = true
+autorun = false
 autorunApps = {
     terminal,
 }
