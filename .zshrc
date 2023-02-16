@@ -84,7 +84,7 @@ plugins=(
 	zsh-syntax-highlighting
     # zsh-vi-mode
 	zsh-autosuggestions
-    zsh-autocomplete
+    # zsh-autocomplete
 	)
 
 # plugins configuration
