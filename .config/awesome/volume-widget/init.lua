@@ -3,52 +3,66 @@ local wibox = require("wibox")
 
 -- capture returned output from a shell command
 function os.capture(cmd, raw)
-  local f = assert(io.popen(cmd, 'r'))
-  local s = assert(f:read('*a'))
-  f:close()
-  if raw then return s end
-  s = string.gsub(s, '^%s+', '')
-  s = string.gsub(s, '%s+$', '')
-  s = string.gsub(s, '[\n\r]+', ' ')
-  return s
+    local f = assert(io.popen(cmd, 'r'))
+    local s = assert(f:read('*a'))
+    f:close()
+    if raw then return s end
+    s = string.gsub(s, '^%s+', '')
+    s = string.gsub(s, '%s+$', '')
+    s = string.gsub(s, '[\n\r]+', ' ')
+    return s
+end
+
+local volume_widget = {}
+
+function volume_widget:new(args)
+    return setmetatable({}, { __index = self }):init(args)
+end
+
+function volume_widget:init(args)
+    self.widget = wibox.widget.textbox()
+    self.widget.font = "Nerd Fonts Sf Mono 8"
+    self.widget.markup = self:gen_widget_text()
+    self.widget.set_align("right")
+    self.widget:connect_signal("button::release", function(_, _, _, _)
+        os.execute("amixer -q sset Master toggle")
+    end)
+    self.timer = gears.timer({ timeout = 0.1 })
+    self.timer:connect_signal("timeout", function() self:update_volume() end)
+    self.timer:start()
+    return self
 end
 
 -- read volume value(0%-100%) from system
-local function get_volume()
-    return os.capture("awk -F\"[][]\" '/dB/ { print $2 }' <(amixer sget Master)", true)
+function volume_widget:get_volume()
+    local pactl = os.capture("pactl get-sink-volume @DEFAULT_SINK@", true)
+    local volume = string.sub(pactl, string.find(pactl, "%d+%%"))
+    return volume
 end
 
-local function get_volume_state()
-    return os.capture("amixer get Master", true)
+function volume_widget:is_volume_muted()
+    local state = os.capture("pactl get-sink-mute @DEFAULT_SINK@", true)
+    if string.find(state, "yes") then
+        return true
+    else
+        return false
+    end
 end
 
-local function gen_widget_text()
-    local volume = get_volume()
-    local volume_state = get_volume_state()
+function volume_widget:gen_widget_text()
+    local volume = self:get_volume()
     local widget_text = ""
 
-    if string.find(volume_state, "off") then
+    if self:is_volume_muted() then
         widget_text = "<span foreground=\"red\">mut</span>"
     else
-        widget_text = "<span foreground=\"pink\">" .. volume .. "%</span>"
+        widget_text = "<span foreground=\"pink\">" .. volume .. "</span>"
     end
     return "  " .. widget_text .. " "
 end
 
-local volume_widget = wibox.widget.textbox()
-volume_widget.font = "Nerd Fonts Sf Mono 8"
-volume_widget.text = gen_widget_text()
-volume_widget.set_align("right")
-volume_widget:connect_signal("button::release", function(_, _, _, _)
-    os.execute("amixer -q sset Master toggle")
-end)
-
-local function update_volume()
-    volume_widget:set_markup(gen_widget_text())
+function volume_widget:update_volume()
+    self.widget:set_markup(self:gen_widget_text())
 end
 
-local volume_timer = gears.timer({ timeout = 0.1})
-volume_timer:connect_signal("timeout", function () update_volume() end)
-volume_timer:start()
-
-return setmetatable(volume_widget, { __call = function(_, ...) return volume_widget end })
+return setmetatable(volume_widget, { __call = volume_widget.new, })
