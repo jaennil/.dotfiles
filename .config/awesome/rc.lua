@@ -237,7 +237,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "a",      function() awful.util.spawn("pavucontrol -t 3") end,
-              {description="show help", group="awesome"}),
+              {description="show audio settings(pavucontrol)", group="awesome"}),
     -- awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
     --           {description = "view previous", group = "tag"}),
     -- awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
