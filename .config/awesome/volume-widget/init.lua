@@ -28,11 +28,11 @@ local function gen_widget_text()
     local widget_text = ""
 
     if string.find(volume_state, "off") then
-        widget_text = "mut"
+        widget_text = "<span foreground=\"red\">mut</span>"
     else
-        widget_text = volume .. "%"
+        widget_text = "<span foreground=\"pink\">" .. volume .. "%</span>"
     end
-    return "  <span foreground=\"green\">" .. widget_text .. "</span>".. " "
+    return "  " .. widget_text .. " "
 end
 
 local volume_widget = wibox.widget.textbox()
