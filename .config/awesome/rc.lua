@@ -18,6 +18,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+local volume_widget = require("volume-widget")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -215,7 +217,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             require("battery-widget") {ac_prefix = "", font = "Nerd Fonts Sf Mono 8" },
             -- require("volume-widget"),
-            require("volume-widget"),
+            volume_widget {},
             mykeyboardlayout,
             mytextclock,
             -- s.mylayoutbox,
@@ -238,6 +240,18 @@ globalkeys = gears.table.join(
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "a",      function() awful.util.spawn("pavucontrol -t 3") end,
               {description="show audio settings(pavucontrol)", group="awesome"}),
+    awful.key({}, "XF86AudioRaiseVolume",      function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%") end,
+              {description="raise volume by 2%", group="awesome"}),
+    awful.key({}, "XF86AudioLowerVolume",      function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%") end,
+              {description="lower volume by 2%", group="awesome"}),
+    awful.key({}, "XF86AudioMute",
+    function()
+        if volume_widget:is_volume_muted() then
+            awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ no")
+        else
+            awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ yes")
+        end
+    end, {description="toggle volume", group="awesome"}),
     -- awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
     --           {description = "view previous", group = "tag"}),
     -- awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
