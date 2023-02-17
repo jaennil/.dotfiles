@@ -588,9 +588,10 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autorun programs
-autorun = false
+autorun = true
 autorunApps = {
-    terminal,
+    -- terminal,
+    "flameshot",
 }
 if autorun then
    for app = 1, #autorunApps do
