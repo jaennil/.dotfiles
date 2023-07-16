@@ -1,2 +1,5 @@
 #!/bin/bash
 sudo cp -f grub /etc/default/grub
+
+mkdir ~/.config/tmux
+cp tmux.conf ~/.config/tmux/tmux.conf
