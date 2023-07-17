@@ -1,6 +1,30 @@
 #!/bin/bash
-sudo cp -f grub /etc/default/grub
-sudo update-grub
 
-mkdir ~/.config/tmux
-cp tmux.conf ~/.config/tmux/tmux.conf
+grub() {
+    sudo cp -f grub /etc/default/grub
+    sudo update-grub
+}
+
+tmux() {
+    mkdir ~/.config/tmux
+    cp tmux.conf ~/.config/tmux/tmux.conf
+}
+
+if [ -z $1 ]
+then
+    grub
+    tmux
+    exit
+fi
+
+for config in "$@"
+do
+    case $config in
+	"grub")
+	    grub
+	    ;;
+	"tmux")
+	    tmux
+	    ;;
+    esac
+done
