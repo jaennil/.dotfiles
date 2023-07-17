@@ -7,7 +7,7 @@ grub() {
 
 tmux() {
     mkdir ~/.config/tmux
-    cp tmux.conf ~/.config/tmux/tmux.conf
+    cp -f tmux.conf ~/.config/tmux/tmux.conf
 }
 
 if [ -z $1 ]
