@@ -7,7 +7,7 @@ GRUB_DEFAULT=0
 GRUB_TIMEOUT_STYLE=hidden
 GRUB_TIMEOUT=0
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=7a6b06f8-0b8b-4957-ba75-32be4ba669b7 i915.enable_psr=0"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=7a6b06f8-0b8b-4957-ba75-32be4ba669b7"
 GRUB_CMDLINE_LINUX=""
 GRUB_DISABLE_OS_PROBER=true
 
