@@ -10,10 +10,15 @@ tmux() {
     cp -f tmux.conf ~/.config/tmux/tmux.conf
 }
 
+workspaces() {
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5  "['<Alt>5']"
+}
+
 if [ -z $1 ]
 then
     grub
     tmux
+    workspaces
     exit
 fi
 
@@ -25,6 +30,9 @@ do
 	    ;;
 	"tmux")
 	    tmux
+	    ;;
+	"workspaces")
+	    workspaces
 	    ;;
     esac
 done
