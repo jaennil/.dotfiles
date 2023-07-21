@@ -64,7 +64,7 @@ do
 	    workspace $2
 	    ;;
 	alacritty)
-	    workspaces
+	    alacritty
 	    ;;
 	*)
 	    printf "${RED}wrong config parameter${NC}\n"
