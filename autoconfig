@@ -16,8 +16,15 @@ tmux() {
 
 workspaces() {
     printf "${CYAN}configuring workspaces${NC}\n"
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5  "['<Alt>5']"
-    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5  "['<Alt><Shift>5']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-$2  "['<Alt>5']"
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-$2  "['<Alt><Shift>5']"
+    printf "${GREEN}done${NC}\n"
+}
+
+alacritty() {
+    printf "${CYAN}configuring alacritty${NC}\n"
+    mkdir ~/.config/alacritty
+    cp -f alacritty.yml ~/.config/alacritty/alacritty.yml
     printf "${GREEN}done${NC}\n"
 }
 
@@ -31,10 +38,11 @@ then
     grub
     tmux
     workspaces
+	alacritty
     exit
 fi
 
-for config in "$@"
+for config in "$1"
 do
     case $config in
 	grub)
@@ -44,6 +52,9 @@ do
 	    tmux
 	    ;;
 	workspaces)
+	    workspaces
+	    ;;
+	alacritty)
 	    workspaces
 	    ;;
 	*)
