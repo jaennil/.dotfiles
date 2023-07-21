@@ -9,21 +9,27 @@ grub() {
 
 tmux() {
     printf "${CYAN}configuring tmux${NC}\n"
-    mkdir ~/.config/tmux
-    cp -f tmux.conf ~/.config/tmux/tmux.conf
+	if [ ! -d "$TMUX_DIR" ];
+	then
+		mkdir ~/.config/tmux
+	fi
+	cp -f tmux.conf ~/.config/tmux/tmux.conf
     printf "${GREEN}done${NC}\n"
 }
 
-workspaces() {
-    printf "${CYAN}configuring workspaces${NC}\n"
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-$2  "['<Alt>5']"
-    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-$2  "['<Alt><Shift>5']"
+workspace() {
+    printf "${CYAN}configuring workspace "$1"${NC}\n"
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-$1  "['<Alt>$1']"
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-$1  "['<Alt><Shift>$1']"
     printf "${GREEN}done${NC}\n"
 }
 
 alacritty() {
     printf "${CYAN}configuring alacritty${NC}\n"
-    mkdir ~/.config/alacritty
+	if [ ! -d "$ALACRITTY_DIR" ];
+	then
+		mkdir ~/.config/alacritty
+	fi
     cp -f alacritty.yml ~/.config/alacritty/alacritty.yml
     printf "${GREEN}done${NC}\n"
 }
@@ -33,11 +39,14 @@ NC='\033[0m'
 CYAN='\033[0;36m'
 GREEN='\033[0;32m'
 
+TMUX_DIR=$HOME/.config/tmux/
+ALACRITTY_DIR=$HOME/.config/alacritty/
+
 if [ -z $1 ]
 then
     grub
     tmux
-    workspaces
+	workspace 5
 	alacritty
     exit
 fi
@@ -51,8 +60,8 @@ do
 	tmux)
 	    tmux
 	    ;;
-	workspaces)
-	    workspaces
+	workspace)
+	    workspace $2
 	    ;;
 	alacritty)
 	    workspaces
