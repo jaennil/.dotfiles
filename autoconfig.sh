@@ -30,7 +30,7 @@ alacritty() {
 	then
 		mkdir ~/.config/alacritty
 	fi
-    cp -f alacritty.yml ~/.config/alacritty/alacritty.yml
+    cp -f alacritty.toml ~/.config/alacritty/alacritty.toml
     printf "${GREEN}done${NC}\n"
 }
 
