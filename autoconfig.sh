@@ -14,6 +14,8 @@ tmux() {
 		mkdir ~/.config/tmux
 	fi
 	cp -f tmux.conf ~/.config/tmux/tmux.conf
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	printf "${RED}now you can press 'prefix-I' (default prefix is ctrl-b) to install plugins${NC}"
     printf "${GREEN}done${NC}\n"
 }
 
