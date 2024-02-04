@@ -26,6 +26,25 @@ workspace() {
     printf "${GREEN}done${NC}\n"
 }
 
+workspaces() {
+    printf "${CYAN}enabling workspaces${NC}\n"
+	for i in {1..10}
+	do
+		printf "${CYAN}enabling workspace $i${NC}\n"
+		gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-$i  "['<Alt>$((i % 10))']"
+	done
+    printf "${GREEN}done${NC}\n"
+}
+
+disable_workspaces() {
+    printf "${CYAN}disabling workspaces${NC}\n"
+	for i in {1..10}
+	do
+		gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$i"  "[]"
+	done
+    printf "${GREEN}done${NC}\n"
+}
+
 alacritty() {
     printf "${CYAN}configuring alacritty${NC}\n"
 	if [ ! -d "$ALACRITTY_DIR" ];
@@ -65,6 +84,12 @@ do
 	workspace)
 	    workspace $2
 	    ;;
+	workspaces)
+		workspaces
+		;;
+	disable_workspaces)
+		disable_workspaces
+		;;
 	alacritty)
 	    alacritty
 	    ;;
